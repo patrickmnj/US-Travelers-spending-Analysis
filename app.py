@@ -1810,7 +1810,7 @@ with economic:
 
         else:
             st.warning(
-                "N"Destination has no economic data for matching"
+                "Destination has no economic data for matching"
                 "Using current filters"
             )
 
