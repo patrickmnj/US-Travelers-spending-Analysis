@@ -169,9 +169,8 @@ overview, composition, patterns, statistics_tab, economic, explore = st.tabs(
     ["Overview", "Spending Composition", "Spending Patterns", "Statistical Tests", "Economic Context", "Explore Data"]
 )
 
-# ═══════════════════════════════════════════
-# TAB 1: OVERVIEW
-# ═══════════════════════════════════════════
+#  OVERVIEW
+
 with overview:
     st.subheader("Average expenditure by travel purpose")
     purpose_summary = (
@@ -234,10 +233,9 @@ with overview:
         st.plotly_chart(fig, use_container_width=True)
     else:
         st.info("Destination_State column not available.")
+        
+        #COMPOSITION
 
-# ═══════════════════════════════════════════
-# TAB 2: COMPOSITION
-# ═══════════════════════════════════════════
 with composition:
     st.subheader("Spending composition")
     ts = filtered_df.copy()
@@ -271,9 +269,8 @@ with composition:
     fig.update_xaxes(tickprefix="$", tickformat=",.0f")
     st.plotly_chart(fig, use_container_width=True)
 
-# ═══════════════════════════════════════════
 # TAB 3: PATTERNS
-# ═══════════════════════════════════════════
+
 with patterns:
     # Histogram + KDE
     st.subheader("Expenditure histogram")
@@ -379,9 +376,9 @@ with patterns:
     fig.update_xaxes(tickprefix="$", tickformat=",.0f")
     st.plotly_chart(fig, use_container_width=True)
 
-# ═══════════════════════════════════════════
-# TAB 4: STATISTICAL TESTS
-# ═══════════════════════════════════════════
+
+#STATISTICAL TESTS
+
 with statistics_tab:
     st.subheader("Business vs Leisure")
     business = filtered_df.loc[filtered_df["Travel_Reason"]=="Business", "Expenses"].dropna()
@@ -478,9 +475,9 @@ with statistics_tab:
     else:
         st.info("Need ≥ 2 purposes for radar.")
 
-# ═══════════════════════════════════════════
-# TAB 5: ECONOMIC CONTEXT
-# ═══════════════════════════════════════════
+
+#ECONOMIC CONTEXT
+
 with economic:
     st.subheader("Destination economics")
     econ_cols = ["Destination_State","Per_Capita_Income","Per_Capita_Disposable_Income","Regional_Price_Parity"]
@@ -543,9 +540,9 @@ with economic:
         else:
             st.warning("No matching economic data under current filters.")
 
-# ═══════════════════════════════════════════
-# TAB 6: EXPLORE
-# ═══════════════════════════════════════════
+
+# EXPLORE
+
 with explore:
     st.subheader("Explore records")
     st.write(f"**{len(filtered_df):,} records** match current filters.")
