@@ -1375,7 +1375,7 @@ else:
         "No statistically significant difference "
         f"(p = {p_value(welch.pvalue)})."
     )   
-        st.markdown("### Statistical results")
+    st.markdown("### Statistical results")
 
         st.dataframe(
             results,
