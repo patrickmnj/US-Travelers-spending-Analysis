@@ -127,7 +127,7 @@ def cohens_d(a, b):
     return (np.mean(a) - np.mean(b)) / np.sqrt(pv)
 
 # Header
-st.title("✈️ Travel Spend Analytics")
+st.title("US Travellers Analysis in Six States")
 st.markdown("Interactive exploration of travel expenditure, purpose, destinations, party size, and economic indicators.")
 st.caption("Exploratory data analysis | Interactive charts | Statistical comparisons")
 
